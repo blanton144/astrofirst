@@ -1,6 +1,10 @@
 This repository has some material for initial exercises for students
 starting to perform astrophysics research, and some example material.
 
+The goal of the initial exercises is to introduce you to the data and
+to make sure you develop some of the same tools necessary for the
+further tasks you will do later.
+
 1. Create your own GitHub repository that mirrors the structure of
 this one. You will have to:
 
@@ -20,11 +24,31 @@ fairly extensively in the documentation.
  * Read the basic description of MaNGA (note the availability of the technical papers there): https://www.sdss4.org/surveys/manga/
  * Read the description of the catalogs for the survey: https://www.sdss4.org/dr17/manga/manga-data/catalogs/
  * Retrieve the DRPAll file for DR17, and plot the log of the stellar mass versus the redshift. Please:
+   - Put the MaNGA data file in a standard directory tree that follows the same form as on the SDSS servers, using the same environmental variables. That means it should live somewhere like $MANGA_SPECTRO_REDUX/[version]/drpall-[version].fits
    - Use the ELPETRO version of the mass
    - Color the points depending on whether they are Primary, Primary+, Secondary, or Ancillary. You will need to read the documentation to figure out how to do this!
    - Label the figure properly with units!
    - Write out the figure as a PNG file.
+   - Send me the PNG.
 
 3. Now you should have a Jupyter notebook which solves the above
-problem. Converty this into a Python script that you can run
-independently of a Jupyter notebook.
+problem. Convert this into a Python script that you can run
+independently of a Jupyter notebook. Commit and push the script to
+GitHub.
+
+4. Perform some calculations on a data file and then write it out as
+an output FITS file, then plot the results. You can do this the same
+way as above (Jupyter notebook, then convert to a script) or write it
+directly as a script.
+
+ * Retrieve the DAPAll file, which you can find on the same page as the DRPAll file above. Again, put it in a similar directory structure as exists on the SDSS servers. 
+ * Match the DAPAll and DRPAll files based on the plateifu column (if it is not obvious from your previous reading what a "plate-IFU" is then find out!). 
+ * Using the entries that are in both, calculate the log of the H-alpha line
+   luminosity. Please:
+    - Use the EMLINE_GFLUX_TOT measurement of the H-alpha flux (which has the label 'Ha-6564' in the documentation)
+    - If the H-alpha line flux value is zero or negative, or the redshift is zero or negative, exclude it from the calculations
+    - Use the astropy.cosmo package to figure out the luminosity distance, to convert the flux to a luminosity (this is the hard part!).
+    - Output as a FITS file a table with one row per row of the DAPAll file, in the same order, with enough information to identify each row uniquely and to plot the log of the H-alpha luminosity and the log of the stellar mass.
+ * Write a script to read in the output file and make a plot of the log H-alpha luminosity vs the log of the mass.
+  
+5. 
