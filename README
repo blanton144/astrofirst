@@ -4,7 +4,14 @@ starting to perform astrophysics research, and some example material.
 Your first exercise will be to create your own GitHub repository that
 mirrors the structure of this one. You will have to:
 
- * Create an account
- * Create a repository
- * Clone the repository to your local machine
+ * Create an account on GitHub
+ * Create a repository with an informative name related to your project.
+ * Clone the repository to your local machine (use 'git clone')
+ * Create a directory structure in your working copy mirroring this product's
+ * Copy the README files from the directories.
+ * Commit the changes (use 'git commit')
+ * Push the changes back to GitHub (use 'git push')
+
+Your second exercise will be to find, read in, and plot information in
+an astronomical data file, within the Jupyter environment.
 
