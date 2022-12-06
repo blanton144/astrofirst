@@ -1,8 +1,8 @@
 This repository has some material for initial exercises for students
 starting to perform astrophysics research, and some example material.
 
-Your first exercise will be to create your own GitHub repository that
-mirrors the structure of this one. You will have to:
+1. Create your own GitHub repository that mirrors the structure of
+this one. You will have to:
 
  * Create an account on GitHub
  * Create a repository with an informative name related to your project.
@@ -12,6 +12,19 @@ mirrors the structure of this one. You will have to:
  * Commit the changes (use 'git commit')
  * Push the changes back to GitHub (use 'git push')
 
-Your second exercise will be to find, read in, and plot information in
-an astronomical data file, within the Jupyter environment.
+2. Find, read in, and plot information in an astronomical data file,
+within the Jupyter environment. You will use data from the MaNGA
+survey.  Figuring out how to do the tasks below will require reading
+fairly extensively in the documentation.
 
+ * Read the basic description of MaNGA (note the availability of the technical papers there): https://www.sdss4.org/surveys/manga/
+ * Read the description of the catalogs for the survey: https://www.sdss4.org/dr17/manga/manga-data/catalogs/
+ * Retrieve the DRPAll file for DR17, and plot the log of the stellar mass versus the redshift. Please:
+   - Use the ELPETRO version of the mass
+   - Color the points depending on whether they are Primary, Primary+, Secondary, or Ancillary. You will need to read the documentation to figure out how to do this!
+   - Label the figure properly with units!
+   - Write out the figure as a PNG file.
+
+3. Now you should have a Jupyter notebook which solves the above
+problem. Converty this into a Python script that you can run
+independently of a Jupyter notebook.
