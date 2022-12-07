@@ -16,7 +16,17 @@ this one. You will have to:
  * Commit the changes (use 'git commit')
  * Push the changes back to GitHub (use 'git push')
 
-2. Find, read in, and plot information in an astronomical data file,
+2. Make sure you can use your product. If the directory of the root
+directory of your product is called $PRODUCT_DIR, then your shell will have to have:
+
+ * $PRODUCT_DIR/bin added to its $PATH environmental variable, and
+ * $PRODUCT_DIR/python added to its $PYTHONPATH environmental variable.
+
+This should happen in your .bashrc file (assuming you are using the
+bash shell. If this is done correctly, you should be able to run
+"example_script" from the command line without error.
+
+3. Find, read in, and plot information in an astronomical data file,
 within the Jupyter environment. You will use data from the MaNGA
 survey.  Figuring out how to do the tasks below will require reading
 fairly extensively in the documentation.
@@ -31,18 +41,18 @@ fairly extensively in the documentation.
    - Write out the figure as a PNG file.
    - Send me the PNG.
 
-3. Now you should have a Jupyter notebook which solves the above
+4. Now you should have a Jupyter notebook which solves the above
 problem. Convert this into a Python script that you can run
 independently of a Jupyter notebook. Commit and push the script to
 GitHub.
 
-4. Perform some calculations on a data file and then write it out as
+5. Perform some calculations on a data file and then write it out as
 an output FITS file, then plot the results. You can do this the same
 way as above (Jupyter notebook, then convert to a script) or write it
 directly as a script.
 
  * Retrieve the DAPAll file, which you can find on the same page as the DRPAll file above. Again, put it in a similar directory structure as exists on the SDSS servers. 
- * Match the DAPAll and DRPAll files based on the plateifu column (if it is not obvious from your previous reading what a "plate-IFU" is then find out!). 
+ * Match the DAPAll and DRPAll files based on the plateifu column (if it is not obvious from your previous reading what a "plate-IFU" is then find out!).  In this step, write a function and put it in utils.py, following the template in the astrofirst product for this function.
  * Using the entries that are in both, calculate the log of the H-alpha line
    luminosity. Please:
     - Use the EMLINE_GFLUX_TOT measurement of the H-alpha flux (which has the label 'Ha-6564' in the documentation)
@@ -50,5 +60,23 @@ directly as a script.
     - Use the astropy.cosmo package to figure out the luminosity distance, to convert the flux to a luminosity (this is the hard part!).
     - Output as a FITS file a table with one row per row of the DAPAll file, in the same order, with enough information to identify each row uniquely and to plot the log of the H-alpha luminosity and the log of the stellar mass.
  * Write a script to read in the output file and make a plot of the log H-alpha luminosity vs the log of the mass.
+ * Commit and push the script to GitHub.
   
-5. 
+6. From your file, select some galaxies with large ratios of H-alpha
+to stellar mass, and some with relatively low ratios. Go to the Marvin
+web interface for MaNGA and take a look at these galaxies. Think about
+the following:
+
+ * Are there trends you can notice between the mass, H-alpha, luminosity,
+   and the way the galaxy looks?
+ * Look at a few high H-alpha cases. Using the spectrum viewer find
+   the H-alpha line at 6563 Angstroms in the rest frame. How does it
+   compare to the other lines? How does it vary across the galaxy?
+ * Now look at the "maps" available in the Marvin viewer. There is a
+   way to show the H-alpha maps. Again, look at a few cases, and thing
+   about the different patterns you see
+
+These exercises should have built out some of the basic skills
+necessary to start asking some *real* questions of the data. There is
+still a lot more to learn. Further examples will appear as necessary
+in astrofirst.
