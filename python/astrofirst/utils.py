@@ -1,36 +1,32 @@
-import numpy as np
+import os
+import fitsio
 
 
-def match_plateifus(plateifu1=None, plateifu2=None):
-    """Return matched indices in plate-IFU lists
+def read_mnsa_catalog(version='0.3.1', ext='SUMMARY'):
+    """Read the MNSA catalog from standard location
 
     Parameters
     ----------
 
-    plateifu1 : str
-        Plate-IFU list #1
+    version : str
+        version number of catalog
 
-    plateifu2 : str
-        Plate-IFU list #2
+    ext : str
+        FITS HDU to read
 
     Returns
     -------
 
-    indx1 : ndarray of np.int32
-       [nmatch] index into first list
-
-    indx2 : ndarray of np.int32
-       [nmatch] index into second list
-
+    data : ndarray
+        data in HDU desired
 
     Notes
     -----
 
-    indx1 and indx2 only return indices of matched values
+    Available HDUs are: SUMMARY, ELLIPSE, SPS_AP04, SPS_AP05, SPS_AP06,
+    SPS_AP07, SPS_AP08, and CENTRAL_FLUX.
 """
-
-    ## Need to add code here to perform calculation!
-    indx1 = np.zeros(0, dtype=np.int32)
-    indx2 = np.zeros(0, dtype=np.int32)
-
-    return(indx1, indx2)
+    mnsa_file = os.path.join(os.getenv('MNSA_DATA'),
+                             version, 'mnsa-{v}.fits'.format(v=version))
+    data = fitsio.read(mnsa_file, ext=ext)
+    return(data)

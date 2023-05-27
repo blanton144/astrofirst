@@ -1,8 +1,0 @@
-#!/usr/bin/env python
-
-import astrofirst.utils
-
-i1, i2 = astrofirst.utils.match_plateifus()
-
-print(i1)
-print(i2)
